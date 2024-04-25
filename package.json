@@ -1,11 +1,20 @@
 {
-  "name": "store_server",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "phumngoc",
-  "license": "ISC"
+    "name": "store_server",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "start": "nodemon --inspect ./src/index.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "phumngoc",
+    "license": "ISC",
+    "dependencies": {
+        "bcrypt": "^5.1.1",
+        "express": "^4.19.2",
+        "express-handlebars": "^7.1.2",
+        "morgan": "^1.10.0",
+        "nodemon": "^3.1.0",
+        "pg": "^8.11.5"
+    }
 }

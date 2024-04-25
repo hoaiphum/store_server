@@ -1,0 +1,29 @@
+<html lang='en'>
+    <head>
+        <meta charset='UTF-8' />
+        <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+        <title>Customer Information</title>
+        <style>
+            body { font-family: Arial, sans-serif; line-height: 1.6; margin: 0; padding: 20px; } .customer-info {
+            max-width: 600px; margin: auto; border: 1px solid #ccc; padding: 20px; border-radius: 5px; } .customer-info
+            h2 { margin-top: 0; } .customer-info p { margin: 10px 0; } .customer-info p strong { font-weight: bold;
+            margin-right: 5px; }
+        </style>
+    </head>
+    <body>
+        {{#each customers}}
+            <div class='customer-info'>
+                <p><strong>First Name:</strong> {{this.first_name}}</p>
+                <p><strong>Last Name:</strong> {{this.last_name}}</p>
+                <p><strong>Birthday:</strong> {{this.birthday}}</p>
+                <p><strong>Gender:</strong> {{this.gender}}</p>
+                <p><strong>Phone:</strong> {{this.phone}}</p>
+                <p><strong>Email:</strong> {{this.email}}</p>
+                <p><strong>Avatar:</strong> {{this.avatar}}</p>
+                <p><strong>Created At:</strong> {{this.created_at}}</p>
+                <p><strong>Updated At:</strong> {{this.updated_at}}</p>
+                <p><strong>Removed At:</strong> {{this.removed_at}}</p>
+            </div>
+        {{/each}}
+    </body>
+</html>
