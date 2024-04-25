@@ -40,23 +40,25 @@ Customer.getCustomerByName = (lastName, customer) => {
 
 Customer.createCustomer = (data, result) => {
     const sql =
-        'INSERT INTO user (first_name, last_name, gender, birthday, email ,phone ,password  , avatar , created_at) VALUES (' +
-        data.firstName +
-        data.lastName +
-        data.gender +
-        data.birthday +
-        data.email +
-        data.phone +
-        data.password +
-        data.avatar +
-        data.createdAt +
-        ")';";
-    console.log('SQL ne' + sql);
-    db.query(sql, (err, res) => {
+        'INSERT INTO customers(first_name, last_name, gender, birthday, email, phone, password, avatar, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);';
+    const values = [
+        data.firstName,
+        data.lastName,
+        data.gender,
+        data.birthday,
+        data.email,
+        data.phone,
+        data.password,
+        data.avatar,
+        data.createdAt,
+    ];
+
+    db.query(sql, values, (err, res) => {
         if (err) {
-            console.error('Error executing query', err);
+            console.error('Error executing query:', sql, err); // Log lỗi một cách rõ ràng hơn
         } else {
-            res.rows;
+            console.log('Inserted successfully:', res.rows); // Log kết quả nếu cần thiết
+            // Thực hiện các hành động tiếp theo nếu cần
         }
     });
 };

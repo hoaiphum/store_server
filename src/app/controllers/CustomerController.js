@@ -22,25 +22,20 @@ const CustomerController = {
     },
     async createCustomer(req, res) {
         try {
-            // const jsonString = JSON.stringify(req.body);
-            res.send(req);
-            // console.log('Log ne ' + req);
-            // data = {
-            //     firstName: req.body.firstName,
-            //     lastName: req.body.lastName,
-            //     birthday: req.body.birthday,
-            //     gender: req.body.gender,
-            //     phone: req.body.phone,
-            //     email: req.body.email,
-            //     password: req.body.password,
-            //     avatar: req.body.avatar,
-            //     createdAt: req.body.createdAt,
-            // };
-            // res.send(data);
-            // await Customer.createCustomer(data, (result) => {
-            //     console.log(data);
-            //     res.send({ data: result });
-            // });
+            const data = {
+                firstName: req.body.firstName,
+                lastName: req.body.lastName,
+                birthday: req.body.birthday,
+                gender: req.body.gender,
+                phone: req.body.phone,
+                email: req.body.email,
+                password: req.body.password,
+                avatar: req.body.avatar,
+                createdAt: req.body.createdAt,
+            };
+            await Customer.createCustomer(data, (result) => {
+                // res.send({ data });
+            });
         } catch (error) {
             console.log(error);
             res.status(500).json({ error: 'Internal server error' });
