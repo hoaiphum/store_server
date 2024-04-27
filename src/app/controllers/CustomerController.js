@@ -34,7 +34,7 @@ const CustomerController = {
                 createdAt: req.body.createdAt,
             };
             await Customer.createCustomer(data, (result) => {
-                // res.send({ data });
+                res.send({ data: result });
             });
         } catch (error) {
             console.log(error);

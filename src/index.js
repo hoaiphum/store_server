@@ -13,7 +13,8 @@ const port = 3001;
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(morgan('combined'));
-app.use(express.urlencoded());
+app.use(express.urlencoded({ extended: true }));
+
 app.use(express.json());
 
 app.engine(
