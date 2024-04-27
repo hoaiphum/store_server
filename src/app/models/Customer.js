@@ -62,4 +62,25 @@ Customer.createCustomer = (data, result) => {
     });
 };
 
+Customer.updateCustomer = (data, result) => {
+    const sql =
+        `UPDATE customers SET` +
+        (data.lastName ? ` last_name = '` + data.lastName + `',` : ``) +
+        (data.firstName ? ` first_name = '` + data.firstName + `',` : ``) +
+        (data.gender ? ` gender = '` + data.gender + `',` : ``) +
+        (data.birthday ? ` birthday = '` + data.birthday + `',` : ``) +
+        (data.email ? ` email = '` + data.email + `',` : ``) +
+        (data.phone ? ` phone = '` + data.phone + `',` : ``) +
+        ` updated_at = CURRENT_TIMESTAMP WHERE id=$1;`;
+    const values = [data.id];
+    db.query(sql, values, (err, res) => {
+        if (err) {
+            console.error('Error executing query:', sql, err);
+        } else {
+            console.log('Updated successfully:', res.rows);
+            result(res);
+        }
+    });
+};
+
 module.exports = Customer;

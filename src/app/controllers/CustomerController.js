@@ -41,6 +41,17 @@ const CustomerController = {
             res.status(500).json({ error: 'Internal server error' });
         }
     },
+    async updateCustomer(req, res) {
+        try {
+            const data = req.body;
+            await Customer.updateCustomer(data, (result) => {
+                res.send({ data: result });
+            });
+        } catch (error) {
+            console.log(error);
+            res.status(500).json({ error: 'Internal server error' });
+        }
+    },
 };
 
 module.exports = CustomerController;
